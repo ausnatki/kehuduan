@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 219970306 何湧康
+        // let a1,b1,c1 = [1,2,3,];
+        // console.log(a1,b1,c1);
+
+        // let [a2,b2,c2]=[1,2,3,];
+        // console.log(a2,b2,c2)
+
+        // let [a3,b3,c3]=[1, ,3,];
+        // console.log(a3,b3,c3)
+
+        // let [a4,b4] = [1]
+        // console.log(a4,b4);
+
+        // let {y:a5,b5}={x:1,y:2}
+        // console.log(a5,b5)
+
+        // //这是因为解构语法要求右侧是一个可迭代的对象或者一个具有可遍历属性的对象。
+        // //但代码的中右侧的对象是一个数字所以不会找到相应的结果
+        // let {a6, b6}=123
+        // console.log(a6, b6)
+
+
+        // // 创建一个集合然后依次向里面添加1，2，3的内容
+        // let set = new Set();
+        // set.add(1)
+        // set.add(2)
+        // set.add(3)
+        // // 删除set集合中值为2的元素
+        // set.delete(2)
+
+        // // 定义迭代器依次输出集合中的值，发现集合中值为2的元素被删除
+        // let i = set.values();
+        // console.log(i.next());
+        // console.log(i.next());
+        // console.log(i.next());
+
+        // let map = new Map()
+        // map.set(1,"a")
+        // map.set(2,"b")
+        // map.set(3,"c")
+        // map.set(4,"d")
+
+        // for(let i = 1;i<=map.size;i++){
+        //     console.log(map.get(i))
+        // }
+
+        // map.forEach(function(value,key){
+        //     console.log(value)
+        // });
+
+        // for(let v of map.values()){
+        //     console.log(v)
+        // }
+
+        // //for...in 循环用于遍历对象的可枚举属性，
+        // //但是map不是一个可枚举的属性，而是一种特殊的数据结构所以才会遍历失败
+        // for(var prop in map){
+        //     console.log(prop)
+        // }
+
+        // let arr1 = [1,2,3];
+        // let arr2 = arr1; // 直接赋值相当于使用的相同的数组
+        // console.log(arr1 == arr2)// 返回true
+
+
+        // let arr3 = [...arr1] 
+        // // spread操作符[...arr1]来创建了一个arr3的副本是不同的实例所以会返回false
+        // console.log(arr1==arr3)
+
+
+        // // 使用箭头函数进行代码改写
+        // let arr4 = [1,2,3];
+        // arr4.forEach(function(v,k){
+        //     console.log(v)
+        // })
+        // let arr44 = [1, 2, 3];
+        // arr4.forEach((v, k) => {
+        //     console.log(v);
+        // });
+
+
+        // //首先创建一个包含元素1、2、3的数组，然后使用filter方法过滤出大于1的元素。
+        // //过滤后，将符合条件的元素进行迭代，并对每个元素执行箭头函数i => console.log(i)，即打印每个符合条件的元素。
+        // Array.of(1, 2, 3).filter(i => i > 1).forEach(i => console.log(i));
+
+        // //这行代码定义了一个箭头函数fib，该函数接受一个参数n。
+        // //函数使用了递归的方式来计算斐波那契数列中第n个数的值。
+        // //如果n大于1，则返回fib(n - 1) + fib(n - 2)，否则返回n本身。
+        // let fib = n => n > 1 ? fib(n - 1) + fib(n - 2) : n
+
+
+        // 定义 Animal 类
+        class Animal {
+            constructor(name) {
+                this.name = name;
+            }
+
+            // 定义方法 shout()
+            shout() {
+                console.log(`动物名字：${this.name}`);
+            }
+        }
+        // 定义 Dog 类，继承自 Animal 类
+        class Dog extends Animal {
+            constructor(name, age) {
+                super(name);
+                this.age = age;
+            }
+            // 定义方法 eat()
+            eat() {
+                console.log(`${this.name}再吃东西`);
+            }
+        }
+        // 创建一个 Animal 实例
+        const animal = new Animal('测试动物');
+        // 调用 shout() 方法
+        animal.shout();
+        // 创建一个 Dog 实例
+        const dog = new Dog('测试狗', 3);
+        // 调用 shout() 方法（从 Animal 继承）
+        dog.shout();
+        // 调用 eat() 方法
+        dog.eat();
+
+
+
+    </script>
+</body>
+
+</html>

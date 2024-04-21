@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="printShapes()">打印平行四边形，和等腰三角形</button>
+    <div id="output"></div>
+
+    <script>
+      
+        // 打印平行四边形
+        function print4(rows) {
+            let output = '';
+            for (let i = 1; i <= rows; i++) {
+                for (let j = 1; j <= rows - i; j++) {
+                    output += ' ';
+                }
+                for (let k = 1; k <= rows; k++) {
+                    output += '*';
+                }
+                output += '\n';
+            }
+            return output;
+        }
+
+        // 打印等腰三角形
+        function print3(rows) {
+            let output = '';
+            for (let i = 1; i <= rows; i++) {
+                for (let j = 1; j <= rows - i; j++) {
+                    output += ' ';
+                }
+                for (let k = 1; k <= 2 * i - 1; k++) {
+                    output += '*';
+                }
+                output += '\n';
+            }
+            return output;
+        }
+
+        function printShapes() {
+            // 获取dom元素
+            const prows = prompt("请输入行数");
+            
+            const outputDiv = document.getElementById('output');
+            // 定义内容变量
+            const outputHtml = `
+                <h2>输入的行数是${prows}</h2>
+                <h3>平行四边形：</h3>
+                <pre>${print4(prows)}</pre>
+                <h3>等腰三角形：</h3> 
+                <pre>${print3(prows)}</pre>
+            `;
+            // 填充dom元素
+            outputDiv.innerHTML = outputHtml;
+        }
+    </script>
+</body>
+</html>

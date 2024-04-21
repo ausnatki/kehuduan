@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>函数计数示例</title>
+<script>
+  function funCounter() {
+    // 219970306 何湧康
+    // 声明一个局部变量 num，用于记录函数调用次数
+    var num = 0;
+    // 返回一个内部函数，该内部函数可以访问并修改外部函数的 num 变量
+    return function() {
+      // 每次调用内部函数时，增加 num 的值并打印调用次数
+      num++;
+      console.log("fun 被调用" + num + "次");
+    };
+  }
+
+  // 调用 funCounter 函数，将返回的闭包赋值给变量 fun
+  var fun = funCounter();
+
+  // 调用闭包函数 fun，触发计数效果
+  fun();
+  fun();
+  fun();
+</script>
+</head>
+<body>
+</body>
+</html>

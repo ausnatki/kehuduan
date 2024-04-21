@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let fun = {
+            a: 0, // 属性a，类型为number
+            b: [2, 4, 6, 8], // 属性b，类型为Array
+            find: function (temp) { // 方法findIndexInB
+                this.a = temp
+                let index = this.b.indexOf(this.a); // 判断a是否在b中，并获取其下标
+                return index !== -1 ? index : -1; // 如果a在b中返回下标，否则返回-1
+            }
+        };
+
+        // 调用方法
+        console.log(fun.find(2)); // 输出：0 ，在数组[2,4,5,8]中下标中为0
+        console.log(fun.find(3));// 输出: -1，因为5不在数组[2, 4, 6, 8]中
+    </script>
+</body>
+
+</html>

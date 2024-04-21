@@ -1,0 +1,105 @@
+<template>
+	<view>
+		<view class="my-top bg-gradual-pink"></view>
+		<view class="topback"></view>
+		<view class="cu-bar bg-gradual-pink" style="border-bottom: 1px #d38d00 solid;">
+			<view class="action">
+				<text class="cuIcon-back text-gray"></text> 返回
+			</view>
+			<view class="content text-bold">
+				活动列表
+			</view>
+		</view>
+
+		<uni-section title="活动信息" type="line" class="my-list">
+			<uni-list>
+				<uni-list-item title="活动名称:" :rightText="action.activityName" />
+				<uni-list-item title="学生名称:" :rightText="userInfo.name" />
+				<uni-list-item title="活动类别:" :rightText="action.activityType" />
+				<uni-list-item v-if="action && typeof action.durationHours !== 'undefined'"  title="活动分数:" :rightText="action.durationHours.toString()" />
+				<uni-list-item title="活动状态:" :rightText="switchstate(state.state)" />
+			</uni-list>
+		</uni-section>
+		
+		<!-- 按钮部分 -->
+		<view class="button-container flex justify-center">
+			<button class="cu-btn my-btn lg bg-blue" @click="clickSuccess">完成活动</button>
+		</view>
+	</view>
+</template>
+
+<script>
+	import { GetInitdata, Success } from '@/pages/api/success.js'
+	import { mapState } from 'vuex'
+	
+	export default {
+		data() {
+			return {
+				aid: 0,
+				action: {},
+				state: 0
+			}
+		},
+		computed: {
+			...mapState('auth', ['userInfo']),
+		},
+		onLoad(options) {
+			console.log(options.aid)
+			this.aid = options.aid
+		},
+		mounted() {
+			this.initdata()
+		},
+		methods: {
+			initdata() {
+				GetInitdata(this.userInfo.uid, this.aid).then(result => {
+					this.action = result.data.action
+					this.state = result.data.state
+				}).catch(response => {
+					console.log(response)
+				})
+			},
+			clickSuccess() {
+				Success(this.userInfo, this.aid).then(result => {
+					// Handle success response if needed
+				}).catch(response => {
+					console.log(response)
+				})
+			},
+			switchstate(state) {
+				switch (state) {
+					case 0:
+						return '未报名'
+					case 1:
+						return '未完成'
+					case 2:
+						return '已完成'
+					default:
+						return '未完成'
+				}
+			}
+		}
+	}
+</script>
+
+<style scoped>
+	.my-top {
+		height: 30px;
+		background-color: aqua;
+	}
+	
+	.my-btn {
+		margin: 0 10px;
+		width: 120px; /* Center buttons horizontally */
+		height: 35px;
+	}
+		
+	.my-list {
+		margin-top: 60px;
+		padding: 10px;
+	}
+	
+	.content-list {
+		padding: 15px;
+	}
+</style>

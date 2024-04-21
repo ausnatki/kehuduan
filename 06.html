@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function fun(a, b, c) {
+            return a + b + c;
+        }
+
+        const arr = [1,2,3]
+        const result= fun(...arr)
+        console.log(result)
+
+
+        // // 示例用法：
+        // const argsArray = [1, 2, 3];
+        // const result = callWithSpread(myFunction, argsArray);
+        // console.log(result); // 输出 6
+
+
+
+        // const str = "dsadad";
+        // const arr = [...str];
+
+        // console.log(arr);
+
+
+        // let{x,y} = 123;
+        // console.log(x,y)
+        // function Fun(){};
+        // Fun.prototype.x = 1;
+        // var f1 = new Fun();
+        // Fun.prototype = {
+        //     x:2,
+        //     y:3
+        // }
+        // var f2 = new Fun();
+        // console.log(f1.x,f1.y,f2.x)
+
+        //           // 1. 利用数组解构交换两个变量的值：
+        //   let a = 1;
+        //   let b = 2;
+
+        //   [a, b] = [b, a];
+
+        //   console.log("1. 交换后的值：");
+        //   console.log("a:", a); // 输出 2
+        //   console.log("b:", b); // 输出 1
+
+        //   // 2. 解构函数返回的数组：
+        //   function fun() {
+        //     return [1, 2];
+        //   }
+
+        //   let [x, y] = fun();
+
+        //   console.log("2. 函数返回的数组：");
+        //   console.log("x:", x); // 输出 1
+        //   console.log("y:", y); // 输出 2
+
+        //   // 3. 提取 JSON 对象的数据：
+        //   let jsonData = {
+        //     f: 'eee',
+        //     l: 'ddd'
+        //   };
+
+        //   let { f, l } = jsonData;
+
+        //   console.log("3. JSON对象的数据提取：");
+        //   console.log("第一个数据:", f);
+        //   console.log("第二个数据:", l);
+    </script>
+</body>
+
+</html>

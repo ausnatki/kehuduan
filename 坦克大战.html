@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moveable Box</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* 通过定位实现 */
+    .container {
+        position: relative;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 0px;
+        width: 640px;
+        height: 640px;
+        /* border: 1px solid black; */
+        overflow: hidden;
+        background-image: url('./练习资源包03/images/grassland.png');
+    }
+
+    .inner-box {
+        position: absolute;
+        width: 85px;
+        height: 58px;
+        /* background-color: blue; */
+        transition: transform 0.2s;
+        background-image: url('./练习资源包03/images/right.png');
+        /* 添加过渡效果 */
+    }
+
+    h1 {
+            text-align: center;
+            color: cyan;
+        }
+</style>
+
+<body>
+    <h1>坦克大战</h1>
+    <div class="container">
+        <div class="inner-box"></div>
+    </div>
+    <script>
+        // 219970306 何湧康
+        const innerBox = document.querySelector('.inner-box');
+        const container = document.querySelector('.container');
+
+        // 初始位置
+        let posX = 0;
+        let posY = 0;
+
+        // 绑定键盘输入事件
+        document.addEventListener('keydown', (e) => {
+            const step = 10; // 移动步长
+
+            switch (e.key) {
+                case 'ArrowUp':
+                      //如果 posY - step 的结果小于 0，则取 0，否则取 posY - step 的值。
+                      posY = Math.max(posY - step, 0);
+                    // 按下向上箭头键时，逆时针旋转90度 通过translate的属性来实现xy轴平移  rotate的属性来实现旋转的功能
+                    innerBox.style.transform = `translate(${posX}px, ${posY}px) rotate(-90deg)`;
+                    break;
+                case 'ArrowDown':
+                    // 这里面的最小值 里面比较的是加上移动步长的值如果 和 大盒子的可视高度-小盒子里面的可视高度 目的是防止我的小盒子超出边界
+                    posY = Math.min(posY + step, container.clientHeight - innerBox.clientHeight);
+
+                    innerBox.style.transform = `translate(${posX}px, ${posY}px) rotate(90deg)`;
+                    break;
+                case 'ArrowLeft':
+                    posX = Math.max(posX - step, 0);
+                    innerBox.style.transform = `translate(${posX}px, ${posY}px) rotate(180deg)`;
+                    break;
+                case 'ArrowRight':
+                    // 防止超出边界
+                    posX = Math.min(posX + step, container.clientWidth - innerBox.clientWidth);
+                    innerBox.style.transform = `translate(${posX}px, ${posY}px) rotate(0deg)`;
+                   
+                    break;
+                default:
+                    return; // 如果按下其他键，直接返回
+            }
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 219970306何湧康 -->
+    <div id="app">点击</div>
+    <script>
+        // 1.
+        // function getSum(num1,num2){
+        //     var sum = num1+num2
+        //     console.log(num1+'+'+num2+'='+(num1*num2))
+        // }
+
+        // 2.
+        // 这里的错误原因是因为函数调用在函数声明之前，执行时会找不到函数定义
+        // getProduct(2,4)
+        // var getProduct = function (num1,num2){
+        //     console.log(num1+'*'+num2+'='+(num1*num2))
+        // }
+        // getProduct(2,4)
+
+        // 3.
+        // var a = 100
+        // function test(){
+        //     console.log(a)
+        //     a = 10
+        //     console.log(a)
+        // }
+        // test()
+        // console.log(a)
+
+
+        // 4.
+        // 在JavaScript中，函数内部的变量会首先在函数作用域内寻找，
+        // 如果找不到，才会向上一级作用域查找，直到找到为止。
+        // 但是在这种情况下，虽然函数内部有变量 a 的声明，
+        // 但是它在 console.log(a) 之前被赋值了 undefined
+        // var a = 100
+        // fun1()
+        // function fun1(){
+        //     var b = 20
+        //     console.log(a)
+        //     console.log(b)
+        //     var a = 30
+        // }
+
+        // 5.
+        // 函数所接受的参数实际是一个数组
+        // function fun(a,b){
+        //     console.log(arguments[0]);
+        //     console.log(arguments[1]);
+        //     console.log(arguments[2]);
+        // }
+
+        // fun(1,2,3)
+
+            // 6.
+            // for循环遍历
+            // function fun2(a, b) {
+            //     for (var index in arguments) {
+            //         console.log(arguments[index]);
+            //     }
+            // }
+            // fun2(1,2,3)
+
+            // 7.
+            // 严格模式下必须声明变量类型
+            // "use strict"
+            // num = 100
+
+            // 8. 9.
+            // 严格模式下必须声明变量类型
+            // 使用try catch截取错误信息
+            
+            "use strict"
+            try{
+            a = 20
+            b = 10
+            console.log(a+b)
+            }catch(error){
+                console.error('这是我的错误信息'+error)
+            }
+
+
+
+        // const tt = document.getElementById('app').addEventListener('click',function(){
+        // getSum(1,2)
+    
+        // })
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 219970306何湧康 -->
+    <script>
+        // // 1
+        // console.log('第一部分')
+        // console.log(Number(true), Number(null), undefined)
+        // // null会被认定为false
+        // console.log(Boolean('100'), Boolean(100), Boolean(null), !!undefined)
+        // console.log(parseInt(123.6), parseInt(0b1011011), parseInt(0x2A), parseInt(0x2A, 8))
+        // console.log(parseFloat('123.6'), parseFloat('100px'), parseFloat('010'));
+        // console.log(eval('87*99+2'))
+        // console.log(isNaN(null), isNaN('123'), isNaN('abc'), isNaN('a1b2c3'))
+        
+        
+        
+        // // 2
+        // console.log('第二部分')
+        // var arr1 = []
+        // console.log(arr1, arr1.length);
+        // var arr2 = [1, 2, 3]
+        // console.log(arr2[0], arr2.length)
+        // var arr3 = new Array()
+        // console.log(arr3[1], arr3.length)
+        // // 2.1实现将数组arr2的第一个元素去掉
+        // console.log('第二部分 去掉数组2的第一个元素')
+        // // shitf去掉数组首元素
+        // arr2.shift()
+        // console.log('数组2去掉第一个元素后的结果' + arr2)
+
+        // // 3
+        // // 创建一个新的 Date 对象实例
+        // console.log('第三部分')
+        // var now = new Date();
+
+        // // 提取当前的小时和分钟
+        // var hours = now.getHours();
+        // var minutes = now.getMinutes();
+
+        // // 如果分钟数小于10，则在前面添加一个0，以保持两位数格式
+        // if (minutes < 10) {
+        //     minutes = '0' + minutes;
+        // }
+
+        // // 将时间以字符串形式显示出来
+        // var currentTime = hours + ':' + minutes;
+        // console.log('现在是 ' + currentTime);
+
+        // // 4
+        // console.log('第四部分')
+        // var reg1 = /^\d{4}$/;
+        // console.log(
+        //     reg1.test('1234'),
+        //     reg1.test('1a34'), //'a'
+        //     reg1.test('12345') // '5'
+        // )
+
+        // var reg2 = new RegExp("^[sp]\\d{1,4}$", "i")
+        // console.log(
+        //     reg2.test('p123'),
+        //     reg2.test('1234'), // 不以 s或者p开头
+        //     reg2.test('S10')
+        // )
+        // //4 中国电信校验
+        // console.log('第四部分 中国电信校验')
+        // // 中国电信手机号正则表达式
+        // var chinaTelecomRegex = /^(?:\+?86)?1(?:33|53|89|80)\d{8}$/;
+
+        // // 测试案例
+        // function testChinaTelecomPhoneNumber(phoneNumber) {
+        //     if (chinaTelecomRegex.test(phoneNumber)) {
+        //         console.log(phoneNumber + ' 是中国电信手机号');
+        //     } else {
+        //         console.log(phoneNumber + ' 不是中国电信手机号');
+        //     }
+        // }
+
+        // // 测试中国电信手机号
+        // testChinaTelecomPhoneNumber('13312345678');  // 中国电信手机号
+        // testChinaTelecomPhoneNumber('15312345678');  // 中国电信手机号
+        // testChinaTelecomPhoneNumber('18912345678');  // 中国电信手机号
+        // testChinaTelecomPhoneNumber('18012345678');  // 中国电信手机号
+
+        // // 测试非中国电信手机号
+        // testChinaTelecomPhoneNumber('13912345678');  // 非中国电信手机号
+        // testChinaTelecomPhoneNumber('16612345678');  // 非中国电信手机号
+        // testChinaTelecomPhoneNumber('18112345678');  // 非中国电信手机号
+
+
+        // // 5
+        // console.log('第五部分')
+        // var qqEmail = "2401510949@qq.com";
+
+        // // 找到QQ号码的起始位置
+        // var startIndex = qqEmail.indexOf('@');
+
+        // // 如果找到了'@'符号，则截取其前面的部分作为QQ号码
+        // if (startIndex !== -1) {
+        //     var qqNumber = qqEmail.substring(0, startIndex);
+        //     console.log("提取到的QQ号码是：" + qqNumber);
+        // } else {
+        //     console.log("未找到QQ号码");
+        // }
+
+        6
+        console.log('第六部分')
+        console.log(Math.floor((Math.random() * 3) + 1))
+        
+        //7 
+        // 闭包
+        console.log('第七部分')
+        var x = 1
+        function A(y) {
+            var x = 2
+            function B(z) {
+                console.log(x + y + z)
+            }
+            return B
+        }
+        var C = A(2)
+        C(3)
+    </script>
+</body>
+
+</html>
