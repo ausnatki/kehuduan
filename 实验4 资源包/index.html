@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .content {
+            width: 600px;
+            height: 300vh;
+            background: linear-gradient(to bottom, #00ff00, #0000ff);
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .left-ad {
+            position: fixed;
+            top: 10px;
+            width: 100px;
+            height: 250px;
+            background: url(./ad1.jpg);
+        }
+
+        .left-ad .close {
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            width: 50px;
+            height: 15px;
+            background: url(./close.png);
+            background-size: cover;
+        }
+
+        .right-ad {
+            position: fixed;
+            top: 10px;
+            right: 0px;
+            width: 100px;
+            height: 250px;
+            background: url(./ad1.jpg);
+        }
+
+        .right-ad .close {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            width: 50px;
+            height: 15px;
+            background: url(./close.png);
+            background-size: cover;
+        }
+
+        .bottom-ad {
+            position: fixed;
+            bottom: -250px; /* 初始位置在底部之外 */
+            right: 0px;
+            width: 300px;
+            height: 250px;
+            background: url(./ad2.jpg);
+            transition: bottom 1s; /* 使用过渡效果 */
+        }
+
+        .bottom-ad .close {
+            position: absolute;
+            right: 0px;
+            width: 50px;
+            height: 15px;
+            background: url(./close.png);
+            background-size: cover;
+        }
+
+        /* 添加一个新的类，用于控制底部广告的出现 */
+        .bottom-ad-show {
+            bottom: 0px; /* 将底部广告移动到可见位置 */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 左上角广告位置 -->
+    <div class="left-ad">
+        <!-- 关闭位置 -->
+        <div class="close"></div>
+    </div>
+
+    <!-- 右上角广告位置 -->
+    <div class="right-ad">
+        <!-- 关闭位置 -->
+        <div class="close"></div>
+    </div>
+
+    <!-- 中间内容位置 -->
+    <div class="content"></div>
+
+    <!-- 右下角广告位置 -->
+    <div class="bottom-ad" id="bottomAd">
+        <!-- 关闭位置 -->
+        <div class="close"></div>
+    </div>
+
+    <script>
+
+        // 获取右下角广告的位置
+        var bottomad = document.querySelector('.bottom-ad');
+
+
+
+
+        // 获取左上角广告关闭按钮
+        var leftAdCloseBtn = document.querySelector('.left-ad .close');
+        // 获取右上角广告关闭按钮
+        var rightAdCloseBtn = document.querySelector('.right-ad .close');
+        // 获取右下角广告关闭按钮
+        var bottomAdCloseBtn = document.querySelector('.bottom-ad .close');
+
+
+        // 左上角广告关闭按钮点击事件处理函数
+        leftAdCloseBtn.addEventListener('click', function () {
+            // 隐藏左上角广告位置的父类
+            document.querySelector('.left-ad').style.display = 'none';
+        });
+
+        // 右上角广告关闭按钮点击事件处理函数
+        rightAdCloseBtn.addEventListener('click', function () {
+            // 隐藏右上角广告位置的父类
+            document.querySelector('.right-ad').style.display = 'none';
+        });
+
+        // 右下角广告关闭按钮点击事件处理函数
+        bottomAdCloseBtn.addEventListener('click', function () {
+            // 隐藏右下角广告位置的父类
+            document.querySelector('.bottom-ad').style.display = 'none';
+        });
+
+        // 获取右下角广告元素
+        var bottomAd = document.getElementById('bottomAd');
+
+        // 在页面加载后，添加类来触发动画
+        window.onload = function() {
+            // 等待页面加载完成后0.5秒，然后添加显示广告的类
+            setTimeout(function() {
+                bottomAd.classList.add('bottom-ad-show');
+            }, 500);
+        };
+
+
+
+    </script>
+</body>
+</html>
